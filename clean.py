@@ -18,9 +18,11 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('input', help='Data file1 (CSV) Data file2 (CSV)')
+    parser.add_argument('input', help='Data file1 (CSV)')
+    parser.add_argument('input', help='Data file2 (CSV)')
     parser.add_argument('output', help='Cleaned data file (CSV)')
     args = parser.parse_args()
 
-    cleaned = clean(args.input)
+    cleaned = clean(args.input, args.input)
     cleaned.to_csv(args.output, index=False)
+    print(cleaned.shape)
